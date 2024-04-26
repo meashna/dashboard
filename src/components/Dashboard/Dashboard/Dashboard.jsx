@@ -6,6 +6,7 @@ import MoreVertOutlinedIcon from "@mui/icons-material/MoreVertOutlined";
 import Orders from "./Orders/Orders";
 import DashboardActions from "../DashboardActions/DashboardActions";
 import DashboardAlerts from "../DashboardAlerts/DashboardAlerts";
+import Revenue from "./Revenue/Revenue";
 
 const Dashboard = () => {
   return (
@@ -26,7 +27,7 @@ const Dashboard = () => {
             <Orders />
           </div>
           <div className={styles.cont2}>
-            <Orders />
+            <Revenue />
           </div>
           <div className={styles.cont3}>
             <Orders />
