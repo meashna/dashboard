@@ -34,31 +34,33 @@ const rows = [
 const SchAct = () => {
   return (
     <div>
-      <div className={styles.com_head}>
-        <div className={styles.com_heading}>Completed Activities(14)</div>
-        <div className={styles.viewall}>View All</div>
-      </div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 150 }} aria-label="simple table">
-          <TableBody>
-            {rows.map((row, index) => (
-              <TableRow
-                key={index}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell
-                  component="th"
-                  scope="row"
-                  align="left"
-                  sx={{ height: 10 }}
+      <div className={styles.com_conts}>
+        <div className={styles.com_head}>
+          <div className={styles.com_heading}>Scheduled Activities (14)</div>
+          <div className={styles.viewall}>View All</div>
+        </div>
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 150 }} aria-label="simple table">
+            <TableBody>
+              {rows.map((row, index) => (
+                <TableRow
+                  key={index}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
-                  {row.description}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                  <TableCell
+                    component="th"
+                    scope="row"
+                    align="left"
+                    sx={{ height: 10 }}
+                  >
+                    {row.description}
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 };
