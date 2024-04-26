@@ -7,31 +7,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { NearMe } from "@mui/icons-material";
-
-function createData(name, team, locationName, locationNumber, loadNumber) {
-  return {
-    name,
-    team,
-    locationName,
-    locationNumber,
-    loadNumber,
-    description: `${name} (${team}) has created ${locationName} ${locationNumber} ${loadNumber}`,
-  };
-}
-
-const rows = [
-  createData(
-    "Gurpreet Singh",
-    "Dispatch team",
-    "Location_Name",
-    "Loc-No-001",
-    "I-I-AAA-1325"
-  ),
-  createData("Aman", "Driver", "Pickup Location", "Loc-No-002", "I-I-AAA-1325"),
-];
+import { useData } from "../Context/Context";
 
 const SchAct = () => {
+  const { data } = useData();
   return (
     <div>
       <div className={styles.com_conts}>
@@ -39,10 +18,17 @@ const SchAct = () => {
           <div className={styles.com_heading}>Scheduled Activities (14)</div>
           <div className={styles.viewall}>View All</div>
         </div>
-        <TableContainer component={Paper}>
+        <TableContainer
+          component={Paper}
+          sx={{
+            border: "1px solid #e0e0e0",
+            borderRadius: "4px",
+            boxShadow: "none",
+          }}
+        >
           <Table sx={{ minWidth: 150 }} aria-label="simple table">
             <TableBody>
-              {rows.map((row, index) => (
+              {data.map((row, index) => (
                 <TableRow
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -53,7 +39,7 @@ const SchAct = () => {
                     align="left"
                     sx={{ height: 10 }}
                   >
-                    {row.description}
+                    {row.description}{" "}
                   </TableCell>
                 </TableRow>
               ))}

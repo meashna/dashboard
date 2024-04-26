@@ -1,5 +1,6 @@
-import * as React from "react";
+import React from "react";
 import styles from "./CompAct.module.css";
+import { useData } from "../Context/Context";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -7,41 +8,29 @@ import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-function createData(name, team, locationName, locationNumber, loadNumber) {
-  return {
-    name,
-    team,
-    locationName,
-    locationNumber,
-    loadNumber,
-    description: `${name} (${team}) has created ${locationName} ${locationNumber} ${loadNumber}`,
-  };
-}
-
-const rows = [
-  createData(
-    "Gurpreet Singh",
-    "Dispatch team",
-    "Location_Name",
-    "Loc-No-001",
-    "I-I-AAA-1325"
-  ),
-  createData("Aman", "Driver", "Pickup Location", "Loc-No-002", "I-I-AAA-1325"),
-];
-
 const CompAct = () => {
+  const { data } = useData();
+
   return (
     <div>
       <div className={styles.com_cont}>
         <div className={styles.com_head}>
-          <div className={styles.com_heading}>Completed Activities(14)</div>
+          <div className={styles.com_heading}>
+            Completed Activities ({data.length})
+          </div>
           <div className={styles.viewall}>View All</div>
         </div>
-
-        <TableContainer component={Paper}>
+        <TableContainer
+          component={Paper}
+          sx={{
+            border: "1px solid #e0e0e0",
+            borderRadius: "4px",
+            boxShadow: "none",
+          }}
+        >
           <Table sx={{ minWidth: 150 }} aria-label="simple table">
             <TableBody>
-              {rows.map((row, index) => (
+              {data.map((row, index) => (
                 <TableRow
                   key={index}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -52,7 +41,7 @@ const CompAct = () => {
                     align="left"
                     sx={{ height: 10 }}
                   >
-                    {row.description}
+                    {row.description}{" "}
                   </TableCell>
                 </TableRow>
               ))}
