@@ -1,21 +1,21 @@
 import React from "react";
-import styles from "./Revenue.module.css";
+import styles from "./Expences.module.css";
 import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
-const Revenue = () => {
+const Expences = () => {
   const upcoming = 60;
   const ongoing = 80;
   const completed = 110;
   const total = upcoming + ongoing + completed;
-  const total_data = 2345;
+  const total_data = 12345;
 
   const upcomingPercent = (upcoming / total) * 100;
   const ongoingPercent = (ongoing / total) * 100;
   const completedPercent = (completed / total) * 100;
   return (
     <div>
-      <div className={styles.ord_head}>Revenue</div>
+      <div className={styles.ord_head}>Expences</div>
       <div className={styles.ord_cont}>
         <Box sx={{ position: "relative", display: "inline-flex" }}>
           <CircularProgress
@@ -83,4 +83,4 @@ const Revenue = () => {
   );
 };
 
-export default Revenue;
+export default Expences;

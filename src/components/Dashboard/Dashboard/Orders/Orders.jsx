@@ -5,9 +5,10 @@ import Box from "@mui/material/Box";
 
 const Orders = () => {
   const upcoming = 50;
-  const ongoing = 30;
-  const completed = 20;
+  const ongoing = 100;
+  const completed = 50;
   const total = upcoming + ongoing + completed;
+  const total_data = 12345;
 
   const upcomingPercent = (upcoming / total) * 100;
   const ongoingPercent = (ongoing / total) * 100;
@@ -45,6 +46,25 @@ const Orders = () => {
             thickness={5}
             sx={{ color: "#4FD2B5", position: "absolute", left: 0, zIndex: 1 }}
           />
+          <Box
+            sx={{
+              top: 0,
+              left: 0,
+              bottom: 0,
+              right: 0,
+              position: "absolute",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "black",
+              fontSize: "20px",
+              fontWeight: "bold",
+            }}
+          >
+            <p>Total</p>
+            {total_data}
+          </Box>
         </Box>
         <div className={styles.upc_head}>
           <div className={styles.upcoming}>Upcoming</div>

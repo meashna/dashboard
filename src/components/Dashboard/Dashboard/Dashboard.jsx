@@ -7,6 +7,8 @@ import Orders from "./Orders/Orders";
 import DashboardActions from "../DashboardActions/DashboardActions";
 import DashboardAlerts from "../DashboardAlerts/DashboardAlerts";
 import Revenue from "./Revenue/Revenue";
+import Trips from "./Trips/Trips";
+import Expences from "./Expences/Expences";
 
 const Dashboard = () => {
   return (
@@ -26,14 +28,15 @@ const Dashboard = () => {
           <div className={styles.cont1}>
             <Orders />
           </div>
+
+          <div className={styles.cont3}>
+            <Trips />
+          </div>
           <div className={styles.cont2}>
             <Revenue />
           </div>
-          <div className={styles.cont3}>
-            <Orders />
-          </div>
           <div className={styles.cont4}>
-            <Orders />
+            <Expences />
           </div>
         </div>
       </div>
